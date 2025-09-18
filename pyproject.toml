@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "easylogz"
-version = "0.1.1"
+version = "0.1.2"
 authors = [
   { name = "zhong", email = "2629144335@qq.com" }
 ]

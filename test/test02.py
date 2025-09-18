@@ -1,7 +1,7 @@
 # test_easylogz.py
 import easylogz
 
-logger = easylogz.get_logger()
+logger = easylogz.get_logger(__name__)
 
 logger.debug("调试信息")
 logger.info("程序正常运行 ✅")

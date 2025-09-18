@@ -149,16 +149,39 @@ class LoggerManager:
             return logging.INFO
         return level
 
+    # def _resolve_project_root(self, project_root: Optional[Union[str, Path]]) -> Path:
+    #     """解析项目根目录"""
+    #     if project_root is None:
+    #         # 默认：假设此文件在项目根目录下的core文件夹中
+    #         try:
+    #             return Path(__file__).parent.parent.resolve()
+    #         except Exception:
+    #             # Fallback to current working directory if path resolution fails
+    #             return Path.cwd()
+    #     return Path(project_root).resolve()
     def _resolve_project_root(self, project_root: Optional[Union[str, Path]]) -> Path:
-        """解析项目根目录"""
-        if project_root is None:
-            # 默认：假设此文件在项目根目录下的core文件夹中
-            try:
-                return Path(__file__).parent.parent.resolve()
-            except Exception:
-                # Fallback to current working directory if path resolution fails
-                return Path.cwd()
-        return Path(project_root).resolve()
+        """解析项目根目录（优化逻辑：优先用户脚本目录/当前工作目录）"""
+        if project_root is not None:
+            # 1. 优先使用用户显式配置的项目根
+            return Path(project_root).resolve()
+
+        try:
+            # 2. 无显式配置时，优先取「当前运行脚本的所在目录」（即test.py的目录）
+            # sys.argv[0] 是当前执行的脚本路径（如 D:\Person\test.py）
+            script_path = Path(sys.argv[0]).resolve()
+            if script_path.is_file():
+                return script_path.parent  # 返回脚本所在目录（D:\Person）
+            else:
+                return script_path  # 若为目录，直接用（极端情况）
+        except (IndexError, OSError):
+            # 3. 若脚本路径获取失败（如交互式环境），取当前工作目录
+            cwd = Path.cwd().resolve()
+            print(f"⚠️ 无法获取运行脚本路径，使用当前工作目录作为项目根: {cwd}")
+            return cwd
+        except Exception as e:
+            # 4. 最终fallback：保留原模块路径逻辑（避免完全失效）
+            print(f"⚠️ 项目根目录识别异常: {e}，使用日志模块路径作为fallback")
+            return Path(__file__).parent.parent.resolve()
 
     def _resolve_log_dir(
         self, log_dir: Optional[Union[str, Path]], project_root: Path
