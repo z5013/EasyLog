@@ -1,4 +1,4 @@
-# EasyLog - 简化易用的Python日志库
+# EasyLogZ - 简化易用的Python日志库
 
 [![PyPI](https://img.shields.io/pypi/v/easylog)](https://pypi.org/project/easylog/)
 [![Python Version](https://img.shields.io/pypi/pyversions/easylog)](https://pypi.org/project/easylog/)
