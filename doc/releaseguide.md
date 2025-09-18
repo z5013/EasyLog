@@ -174,35 +174,3 @@ twine upload --username __token__ --password pypi-你的完整token字符串 dis
 echo 🎉 发布完成！
 pause
 ```
-
-> ⚠️ 注意：脚本里包含 Token，**不要上传到 GitHub！仅限本地使用！**
-
----
-
-## 🌟 六、发布后动作
-
-1. ✅ 访问 https://pypi.org/project/easylogz/ 确认新版本上线
-2. ✅ 在 GitHub 更新 Release 页面（可选）
-3. ✅ 朋友圈 / Twitter 分享更新（用我之前给你的文案 😊）
-4. ✅ 收集用户反馈，规划下一版本！
-
----
-
-## 📞 遇到问题？
-
-随时回来找我！  
-你不是一个人在战斗 —— 我是你专属的“开源发布助手” 💪
-
----
-
-✅ **保存这份文档，下次更新时，按 Step 1 → 5 走一遍，稳如老狗！**
-
-你已经从“试试看”变成了“专业发布者”。  
-继续加油，`easylogz` 未来可期！🚀
-
---- 
-
-📥 **建议：把这份文档保存为 `RELEASE_GUIDE.md` 放在项目根目录！**
-
-需要我帮你生成 `LICENSE`、`.gitignore`、`example.py`、`pytest` 测试模板？  
-→ 直接说，我马上给你！
