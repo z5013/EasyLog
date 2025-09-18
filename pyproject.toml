@@ -27,7 +27,7 @@ classifiers = [
 dependencies = []  # 如果有依赖，比如 "uvicorn", "fastapi" 等，填在这里
 
 [project.urls]
-Homepage = "https://github.com/z5013/EasyLog"
-"Bug Tracker" = "https://github.com/z5013/EasyLog/issues"
-"Source Code" = "https://github.com/z5013/EasyLog"
+Homepage = "https://github.com/z5013/EasyLogZ"
+"Bug Tracker" = "https://github.com/z5013/EasyLogZ/issues"
+"Source Code" = "https://github.com/z5013/EasyLogZ"
 
