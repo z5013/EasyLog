@@ -175,6 +175,5 @@ echo 🎉 发布完成！
 pause
 
 
-twine upload --username __token__ --password pypi-AgEIcHlwaS5vcmcCJDk0NDgyYjE1LWEwNTQtNDAyOS1iY2Y5LTNmOTRiODMzOTIwOAACKlszLCI5NDBhYTkzNi01ZDY2LTRhYzQtYTNhMC1lMWMxYTFkNGM2N2MiXQAABiCw_y76ucCj-d6N-oaZrOTX5vD88rZRqKiDB3O-piPpJw dist/*
 
 ```
