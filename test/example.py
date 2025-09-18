@@ -2,7 +2,7 @@ import time
 from pathlib import Path
 
 
-from easylog import setup_logging, get_logger, get_log_path
+from easylogz import setup_logging, get_logger, get_log_path
 
 
 def main():

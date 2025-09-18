@@ -1,21 +1,16 @@
 [build-system]
-requires = ["setuptools>=36.2.0"]  # 降低版本要求，兼容更多环境
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "easylog"
-version = "0.1.0"
+name = "easylogz"
+version = "0.1.1"
 authors = [
-  { name="zhong", email="2629144335@qq.com" }
+  { name = "zhong", email = "2629144335@qq.com" }
 ]
 description = "一个简单易用的Python日志工具，提供开箱即用的日志管理功能"
-long_description = """
-EasyLog 是一个简化易用的日志管理模块，提供统一、开箱即用的日志服务。
-支持多级别日志、文件轮转、控制台输出，并具有完善的错误处理机制。
-用户只需调用 get_logger 即可获得已配置好的 logger，无需手动初始化，
-同时支持配置 Uvicorn 的日志格式，适合 FastAPI 等 Web 框架使用。
-"""
-long_description_content_type = "text/markdown"
+readme = "README.md"
+license = { text = "MIT" }
 requires-python = ">=3.8"
 classifiers = [
   "Programming Language :: Python :: 3",
@@ -29,8 +24,10 @@ classifiers = [
   "Topic :: Software Development :: Libraries :: Python Modules",
   "Topic :: System :: Logging"
 ]
+dependencies = []  # 如果有依赖，比如 "uvicorn", "fastapi" 等，填在这里
 
 [project.urls]
-"Homepage" = " https://github.com/z5013/EasyLog"
-"Bug Tracker" = " https://github.com/z5013/EasyLog/issues"
-"Source Code" = " https://github.com/z5013/EasyLog"
+Homepage = "https://github.com/z5013/EasyLog"
+"Bug Tracker" = "https://github.com/z5013/EasyLog/issues"
+"Source Code" = "https://github.com/z5013/EasyLog"
+

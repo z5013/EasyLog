@@ -1,7 +1,9 @@
-from easylog import setup_logging
+# test_easylogz.py
+import easylogz
 
-# 自定义日志保存路径
-setup_logging({
-    "log_dir": "./logss",  # 显式指定日志保存目录
-    "log_filename": "my_app.log"      # 日志文件名（可选，默认是 app.log）
-})
+logger = easylogz.get_logger()
+
+logger.debug("调试信息")
+logger.info("程序正常运行 ✅")
+logger.warning("注意：这是一个警告 ⚠️")
+logger.error("错误：发生异常！❌")

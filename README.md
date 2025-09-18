@@ -19,7 +19,7 @@ EasyLog 是一个简化易用的 Python 日志管理模块，提供统一、开�
 ## 安装
 
 ```bash
-pip install easylog
+pip install easylogz
 ```
 
 ## 快速开始
@@ -27,7 +27,7 @@ pip install easylog
 ### 基本使用
 
 ```python
-from easylog import get_logger
+from easylogz import get_logger
 
 # 获取日志器（首次调用会自动初始化日志系统）
 logger = get_logger("my_module")
@@ -43,16 +43,16 @@ logger.critical("这是严重错误信息")
 ### 自定义配置
 
 ```python
-from easylog import setup_logging, get_logger
+from easylogz import setup_logging, get_logger
 
 # 显式配置日志系统
 setup_logging({
-    "log_level": "DEBUG",          # 日志级别
-    "log_dir": "/path/to/logs",    # 日志目录
-    "log_filename": "app.log",     # 日志文件名
+    "log_level": "DEBUG",  # 日志级别
+    "log_dir": "/path/to/logs",  # 日志目录
+    "log_filename": "app.log",  # 日志文件名
     "max_bytes": 5 * 1024 * 1024,  # 单个日志文件最大大小(5MB)
-    "backup_count": 5,             # 保留的备份日志数量
-    "console_output": True         # 是否输出到控制台
+    "backup_count": 5,  # 保留的备份日志数量
+    "console_output": True  # 是否输出到控制台
 })
 
 # 使用配置好的日志器
@@ -67,7 +67,7 @@ logger.info("应用启动")
 ```python
 from fastapi import FastAPI
 import uvicorn
-from easylog import setup_logging, get_uvicorn_log_config, get_logger
+from easylogz import setup_logging, get_uvicorn_log_config, get_logger
 
 # 配置日志
 setup_logging({
@@ -79,10 +79,12 @@ setup_logging({
 app = FastAPI()
 logger = get_logger("fastapi_app")
 
+
 @app.get("/")
 async def root():
     logger.info("收到请求")
     return {"message": "Hello World"}
+
 
 if __name__ == "__main__":
     # 使用 EasyLog 的配置来运行 Uvicorn

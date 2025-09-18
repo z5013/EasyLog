@@ -17,7 +17,7 @@ EasyLog 是一个简化易用的日志管理模块，提供统一、开箱即用
 ### 基本使用
 
 ```python
-from easylog import get_logger
+from easylogz import get_logger
 
 # 获取日志器（首次调用会自动初始化日志系统）
 logger = get_logger("my_module")
@@ -33,16 +33,16 @@ logger.critical("这是严重错误信息")
 ### 自定义配置
 
 ```python
-from easylog import setup_logging, get_logger
+from easylogz import setup_logging, get_logger
 
 # 显式配置日志系统
 setup_logging({
-    "log_level": "DEBUG",          # 日志级别
-    "log_dir": "/path/to/logs",    # 日志目录
-    "log_filename": "app.log",     # 日志文件名
-    "max_bytes": 5 * 1024 * 1024,  # 单个日志文件最大大小(5MB)
-    "backup_count": 5,             # 保留的备份日志数量
-    "console_output": True         # 是否输出到控制台
+   "log_level": "DEBUG",  # 日志级别
+   "log_dir": "/path/to/logs",  # 日志目录
+   "log_filename": "app.log",  # 日志文件名
+   "max_bytes": 5 * 1024 * 1024,  # 单个日志文件最大大小(5MB)
+   "backup_count": 5,  # 保留的备份日志数量
+   "console_output": True  # 是否输出到控制台
 })
 
 # 使用配置好的日志器
@@ -108,31 +108,33 @@ logger.info("应用启动")
 ```python
 from fastapi import FastAPI
 import uvicorn
-from easylog import setup_logging, get_uvicorn_log_config, get_logger
+from easylogz import setup_logging, get_uvicorn_log_config, get_logger
 
 # 配置日志
 setup_logging({
-    "log_level": "INFO",
-    "console_output": True,
-    "configure_uvicorn_logging_runtime": True
+   "log_level": "INFO",
+   "console_output": True,
+   "configure_uvicorn_logging_runtime": True
 })
 
 app = FastAPI()
 logger = get_logger("fastapi_app")
 
+
 @app.get("/")
 async def root():
-    logger.info("收到请求")
-    return {"message": "Hello World"}
+   logger.info("收到请求")
+   return {"message": "Hello World"}
+
 
 if __name__ == "__main__":
-    # 使用EasyLog的配置来运行Uvicorn
-    uvicorn.run(
-        "main:app",
-        host="0.0.0.0",
-        port=8000,
-        log_config=get_uvicorn_log_config()  # 使用统一日志配置
-    )
+   # 使用EasyLog的配置来运行Uvicorn
+   uvicorn.run(
+      "main:app",
+      host="0.0.0.0",
+      port=8000,
+      log_config=get_uvicorn_log_config()  # 使用统一日志配置
+   )
 ```
 
 ### 多模块日志
@@ -141,20 +143,23 @@ if __name__ == "__main__":
 
 ```python
 # module_a.py
-from easylog import get_logger
+from easylogz import get_logger
 
 logger = get_logger("module.a")
 
+
 def function_a():
-    logger.info("执行模块A的功能")
+   logger.info("执行模块A的功能")
+
 
 # module_b.py
-from easylog import get_logger
+from easylogz import get_logger
 
 logger = get_logger("module.b")
 
+
 def function_b():
-    logger.info("执行模块B的功能")
+   logger.info("执行模块B的功能")
 ```
 
 ### 异常日志记录
@@ -162,15 +167,15 @@ def function_b():
 记录异常信息时，使用`exc_info=True`参数捕获堆栈跟踪：
 
 ```python
-from easylog import get_logger
+from easylogz import get_logger
 
 logger = get_logger("error_handling")
 
 try:
-    # 可能出错的代码
-    result = 1 / 0
+   # 可能出错的代码
+   result = 1 / 0
 except ZeroDivisionError:
-    logger.error("发生除零错误", exc_info=True)  # 记录异常堆栈
+   logger.error("发生除零错误", exc_info=True)  # 记录异常堆栈
 ```
 
 ## 路径处理
@@ -185,7 +190,7 @@ except ZeroDivisionError:
 3. 可通过`get_log_path()`获取实际使用的日志目录
 
 ```python
-from easylog import get_log_path
+from easylogz import get_log_path
 
 print(f"日志文件保存路径: {get_log_path()}")
 ```

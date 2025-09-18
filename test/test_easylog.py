@@ -11,7 +11,7 @@ from unittest.mock import patch, MagicMock
 import pytest
 
 
-from easylog import (
+from easylogz import (
     LoggerManager,
     setup_logging,
     get_logger,
